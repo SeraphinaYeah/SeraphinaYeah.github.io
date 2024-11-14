@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>读书笔记 - Chen to Rich and Excellent</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .reading-form {
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .notes-list {
+            margin-top: 40px;
+        }
+        .note-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .note-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .note-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .note-content {
+            white-space: pre-wrap;
+        }
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .editor-toolbar {
+            background: #f5f5f5;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .editor-toolbar button {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            color: #333;
+        }
+        .editor-toolbar button:hover {
+            background: #eee;
+        }
+        .editor-toolbar select {
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+        .editor-toolbar .separator {
+            width: 1px;
+            background: #ddd;
+            margin: 0 5px;
+        }
+        #noteContent {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            min-height: 200px;
+        }
+        .note-content {
+            white-space: pre-wrap;
+        }
+        .color-picker {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h1>个人成长记录</h1>
+            <ul>
+                <li><a href="daily_activity.html">每日记录</a></li>
+                <li><a href="reading_notes.html" class="active">读书笔记</a></li>
+                <li><a href="future_outlook.html">未来展望</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <h2>读书笔记</h2>
+            <div class="reading-form">
+                <div class="form-group">
+                    <label for="bookTitle">书名</label>
+                    <input type="text" id="bookTitle" placeholder="输入书名">
+                </div>
+                <div class="form-group">
+                    <label for="noteContent">读书笔记</label>
+                    <div class="editor-toolbar">
+                        <select id="fontName">
+                            <option value="Microsoft YaHei">微软雅黑</option>
+                            <option value="SimSun">宋体</option>
+                            <option value="KaiTi">楷体</option>
+                            <option value="Arial">Arial</option>
+                        </select>
+                        <select id="fontSize">
+                            <option value="3">正常</option>
+                            <option value="1">小</option>
+                            <option value="2">中</option>
+                            <option value="4">大</option>
+                            <option value="5">特大</option>
+                        </select>
+                        <div class="separator"></div>
+                        <button onclick="formatDoc('bold')" title="加粗"><i class="fas fa-bold"></i></button>
+                        <button onclick="formatDoc('italic')" title="斜体"><i class="fas fa-italic"></i></button>
+                        <button onclick="formatDoc('underline')" title="下划线"><i class="fas fa-underline"></i></button>
+                        <button onclick="formatDoc('strikethrough')" title="删除线"><i class="fas fa-strikethrough"></i></button>
+                        <div class="separator"></div>
+                        <button onclick="formatDoc('justifyLeft')" title="左对齐"><i class="fas fa-align-left"></i></button>
+                        <button onclick="formatDoc('justifyCenter')" title="居中"><i class="fas fa-align-center"></i></button>
+                        <button onclick="formatDoc('justifyRight')" title="右对齐"><i class="fas fa-align-right"></i></button>
+                        <div class="separator"></div>
+                        <input type="color" id="textColor" class="color-picker" title="文字颜色" onchange="setTextColor(this.value)">
+                    </div>
+                    <div id="noteContent" contenteditable="true" style="border: 1px solid #ddd; padding: 10px;"></div>
+                </div>
+                <button onclick="addNote()">保存笔记</button>
+            </div>
+            <div class="notes-list" id="notesList">
+                <!-- 笔记将通过 JavaScript 动态添加 -->
+            </div>
+        </main>
+    </div>
+    <script src="../js/reading.js"></script>
+</body>
+</html> 

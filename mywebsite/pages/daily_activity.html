@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日记录 - Chen to Rich and Excellent</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .todo-container {
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .todo-item.completed span {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .add-todo {
+            margin: 20px 0;
+        }
+        .date-header {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h1>个人成长记录</h1>
+            <ul>
+                <li><a href="daily_activity.html" class="active">每日记录</a></li>
+                <li><a href="reading_notes.html">读书笔记</a></li>
+                <li><a href="future_outlook.html">未来展望</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <h2 class="date-header"></h2>
+            <div class="add-todo">
+                <input type="text" id="newTodoInput" placeholder="输入新的任务...">
+                <button onclick="addTodo()">添加任务</button>
+            </div>
+            <div class="todo-container" id="todoList">
+                <!-- 待办事项将通过 JavaScript 动态添加 -->
+            </div>
+        </main>
+    </div>
+    <script src="../js/daily.js"></script>
+</body>
+</html> 

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来展望 - Chen to Rich and Excellent</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .future-form {
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .goal-card {
+            background: #fff;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .goal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .goal-title {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .goal-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .goal-status {
+            margin: 10px 0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status-in-progress {
+            background: #cce5ff;
+            color: #004085;
+        }
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        .goal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .goal-actions button {
+            padding: 5px 15px;
+            font-size: 0.9em;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+        }
+        .update-btn {
+            background-color: #ffc107;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h1>个人成长记录</h1>
+            <ul>
+                <li><a href="daily_activity.html">每日记录</a></li>
+                <li><a href="reading_notes.html">读书笔记</a></li>
+                <li><a href="future_outlook.html" class="active">未来展望</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <h2>未来展望</h2>
+            <div class="future-form">
+                <div class="form-group">
+                    <label for="goalTitle">目标描述</label>
+                    <input type="text" id="goalTitle" placeholder="输入你的目标">
+                </div>
+                <div class="form-group">
+                    <label for="targetDate">计划完成日期</label>
+                    <input type="date" id="targetDate">
+                </div>
+                <div class="form-group">
+                    <label for="goalStatus">目标状态</label>
+                    <select id="goalStatus">
+                        <option value="pending">待开始</option>
+                        <option value="in-progress">进行中</option>
+                        <option value="completed">已完成</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="goalDetails">详细计划</label>
+                    <textarea id="goalDetails" placeholder="描述你的具体计划和实施步骤..."></textarea>
+                </div>
+                <button onclick="addGoal()">保存目标</button>
+            </div>
+            <div id="goalsList">
+                <!-- 目标列表将通过 JavaScript 动态添加 -->
+            </div>
+        </main>
+    </div>
+    <script src="../js/future.js"></script>
+</body>
+</html> 
